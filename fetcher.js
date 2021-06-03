@@ -8,16 +8,16 @@ const url = args[0];
 
 request(url, (error, response, body) => {
   console.log('error:', error); // Print the error if one occurred
-  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  console.log('body:', body); // Print the HTML for the Google homepage.
+  console.log('statusCode:', response && response.statusCode); // statuscode when response recieved
+  console.log('body:', body); //HTML body of the homepage
 
   fs.writeFile(path, body, err => {
     if (err) {
       console.error(err);
       return;
     } else {
-      console.log("download and saved to ./index.html");
-      process.exit();
+      console.log("download and saved to ./index.html"); //logging message to the terminal when download is complete
+      process.exit(); //exiting the process when complete
     }
   });
 });
